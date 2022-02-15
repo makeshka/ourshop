@@ -4,3 +4,4 @@ from django.db import models
 # save this shit
 # meirlan krasaavchik emes
 # coolbeam dalbaepka
+
