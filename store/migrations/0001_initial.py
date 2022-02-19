@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('in_stock', models.BooleanField(default=True)),
                 ('in_active', models.BooleanField(default=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('updaded', models.DateTimeField(auto_now=True)),
+                ('updated', models.DateTimeField(auto_now=True)),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product', to='store.category')),
                 ('producer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product_creater', to=settings.AUTH_USER_MODEL)),
             ],

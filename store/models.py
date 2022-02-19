@@ -28,7 +28,7 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     in_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
-    updaded = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = 'products'
