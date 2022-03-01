@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-9_x+@ud5721#fuq7+k9i6(j$#0lcrriu*&2%!j&)d09e@eit54
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'yourdomain.com']
 
 
 
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
+    'basket',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +92,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

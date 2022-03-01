@@ -1,4 +1,8 @@
-{% extends "../base.html" %}
+{% extends "store/base.html" %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
 {# комментсы #}
 
 {% block content %}
