@@ -41,12 +41,11 @@ class Product(models.Model):
     products = ProductManager()
 
     class Meta:
-        verbose_name_plural = 'products'
+        verbose_name_plural = 'Products'
         ordering = ('-created',)
-
-    def __str__(self):
-        return self.title
 
     def get_absolute_url(self):
         return reverse('store:product_detail', args=[self.slug])
-    
+
+    def __str__(self):
+        return self.title
