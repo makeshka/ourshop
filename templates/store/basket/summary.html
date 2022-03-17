@@ -70,8 +70,8 @@
         csrfmiddlewaretoken: "{{csrf_token}}",
         action: 'post'
       },
-      success: function (json) {
-        $('.product-item[data-index="' + prodid + '"]').remove();
+      $success: function (json) {
+        ('.product-item[data-index="' + prodid + '"]').remove();
         document.getElementById("subtotal").innerHTML = json.subtotal;
         document.getElementById("basket-qty").innerHTML = json.qty
       },
