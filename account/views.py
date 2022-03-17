@@ -17,10 +17,8 @@ from .token import account_activation_token
 
 @login_required
 def dashboard(request):
-    orders = user_orders(request)
     return render(request,
-                  'account/user/dashboard.html',
-                  {'section': 'profile', 'orders': orders})
+                  'account/user/dashboard.html')
 
 
 @login_required
