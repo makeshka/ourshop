@@ -114,3 +114,4 @@ class PwdResetConfirmForm(SetPasswordForm):
         label='Repeat password', widget=forms.PasswordInput(
             attrs={'class': 'form-control mb-3', 'placeholder': 'New Password', 'id': 'form-new-pass2'}))
 
+
