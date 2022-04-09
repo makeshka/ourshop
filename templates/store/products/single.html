@@ -5,69 +5,62 @@
 {% endblock %}
 {% block content %}
 
+<style>
+	#button{
+		width: 40px;
+		height: 45px;
+		margin-left: 320px;
+		margin-top: -56px;
+	}
+	#add-button{
+		width: 300px;
+		height: 45px;
+	}
+</style>
 
 <main class="pt-2">
 
   <div class="container" style="max-width: 1000px">
-
-    <div class="row g-3">
-          <div class="alert alert-primary fw600 rounded-0 border-0 py-3" role="alert">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-info-circle me-2"
-        viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path
-          d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-      </svg>
-      COVID-19 - <u>Click here for our latest updates</u> on our stores, website and contact centre. Thank you for
-      your patience and support.
-    </div>
+    <div class="row g-3">   
         <div class="col-12 d-flex justify-content-between">
-
         </div>
-
         <div class="col-md-5 ps-3 col-lg-5 order-md-last p-0 order-1">
             <div class="d-grid gap-2">
-
-            <div class="d-flex d-flex-inline justify-content-between">
-            <div><span class="h3">£{{ product.price }}</span><p class="text-muted">includes tax</p></div>
-                   <div class="">
-                                <label for="select">Qty</label>
-                                <select id="select" class="h6" style="width:50px;height:40px;">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                    </div>
-            </div>
+							<h1 class="mb-0 h2 pe-4 pb-4">{{ product.title }}</h1>
             <hr>
-            <p id="text-desc" >{{product.description}}  </p>
+            <p id="text-desc" >{{product.description}}</p>
             <hr>
+						<div class="d-flex d-flex-inline justify-content-between">
+							<div><span class="h3">{{ product.price }}$</span></div>
+										 <div class="">
+																	<label for="select">Quantity</label>
+																	<select id="select" class="h6" style="width:50px;height:40px;">
+																			<option value="1">1</option>
+																			<option value="2">2</option>
+																			<option value="3">3</option>
+																			<option value="4">4</option>
+																	</select>
+											</div>
+							</div>
             <button type="button" id="add-button" value="{{product.id}}" class="btn btn-success fw500">Add to basket</button>
-            <button type="button" id="add-button" value="{{product.id}}" class="btn btn-light fw500">Add to Favorites</button>
+						<button type="button" class="btn btn-sm" id="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 19 16">
+							<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+						</svg></button>
             </div>
         </div>
-
         <div class="col-md-7 col-lg-7 p-0">
-
-        
-
             <div class="card mb-3 border-0">
             <div class="row g-0">
                 <div class="col-md-12">
-                    <div class="card-body p-1">
-                        <h1 class="mb-0 h2 pe-4 pb-4">{{ product.title }}</h1>
+                    <div class="card-body p-1">                       
                         <div class="bg-light"><img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}"> </div>
                     </div>
                     
                 </div>
             </div>
-            </div>
-
-            
-
+            </div>     
         </div>
-
     </div>
   </div>
 </main>
