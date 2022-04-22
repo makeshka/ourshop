@@ -2,6 +2,11 @@
 {% load static %} 
 {% block title %}Basket Summary{%endblock %} 
 {% block content %}
+<style>
+	a{
+		text-decoration: none;
+	}
+</style>
 
 <main class="pt-5">
   <div class="container" style="max-width: 1000px">
@@ -11,6 +16,7 @@
     <div class="col-12 d-flex justify-content-between">
       <div>Manage your <b>orders</b> and personal details</div>
       <div><a href="{% url "account:edit_details" %}">Change Details</a></div>
+			<div><a href="{% url "wishlist:wishlist_page" %}">Wishlist</a></div>
 			<div><a href="{% url "account:logout" %}">Logout</a></div>
     </div>
     <hr />

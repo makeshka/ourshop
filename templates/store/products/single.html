@@ -16,6 +16,45 @@
 		width: 300px;
 		height: 45px;
 	}
+	.quantity_inner * {
+    box-sizing: border-box;    
+}    
+.quantity_inner {
+    display: inline-flex;
+    border-radius: 26px;
+    border: 4px solid #198754;
+}        
+.quantity_inner .bt_minus,
+.quantity_inner .bt_plus,
+.quantity_inner .quantity {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: 0;
+}
+.quantity_inner .quantity {
+    width: 50px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+.quantity_inner .bt_minus svg,
+.quantity_inner .bt_plus svg {
+    stroke: #198754;
+    stroke-width: 4;
+    transition: 0.5s;
+    margin: 10px;
+}    
+.quantity_inner .bt_minus:hover svg,
+.quantity_inner .bt_plus:hover svg {
+    stroke: #000;
+}
 </style>
 
 <main class="pt-2">
@@ -43,7 +82,7 @@
 											</div>
 							</div>
             <button type="button" id="add-button" value="{{product.id}}" class="btn btn-success fw500">Add to basket</button>
-						<button type="button" class="btn btn-sm" id="button">
+						<button type="button" class="btn btn-sm" id="button" value="{{product.id}}">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 19 16">
 							<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
 						</svg></button>
@@ -83,6 +122,61 @@
             error: function (xhr, errmsg, err) {}
         });
     })
+		// Убавляем кол-во по клику
+    $('.quantity_inner .bt_minus').click(function() {
+			let $input = $(this).parent().find('.quantity');
+			let count = parseInt($input.val()) - 1;
+			count = count < 1 ? 1 : count;
+			$input.val(count);
+	});
+	// Прибавляем кол-во по клику
+	$('.quantity_inner .bt_plus').click(function() {
+			let $input = $(this).parent().find('.quantity');
+			let count = parseInt($input.val()) + 1;
+			count = count > parseInt($input.data('max-count')) ? parseInt($input.data('max-count')) : count;
+			$input.val(parseInt(count));
+	}); 
+	// Убираем все лишнее и невозможное при изменении поля
+	$('.quantity_inner .quantity').bind("change keyup input click", function() {
+			if (this.value.match(/[^0-9]/g)) {
+					this.value = this.value.replace(/[^0-9]/g, '');
+			}
+			if (this.value == "") {
+					this.value = 1;
+			}
+			if (this.value > parseInt($(this).data('max-count'))) {
+					this.value = parseInt($(this).data('max-count'));
+			}    
+	});    
+		$(document).on('click', '#button', function (e) {
+			e.preventDefault();
+			$.ajax({
+					type: 'POST',
+					url: '{% url "wishlist:wishlist_add" %}',
+					data: {
+							productid: $('#button').val(),
+							productqty: $('#select option:selected').text(),
+							csrfmiddlewaretoken: "{{csrf_token}}",
+							action: 'post'
+					},
+					success: function (json) {
+						 document.getElementById("wishlist-qty").innerHTML = json.qty
+					},
+					error: function (xhr, errmsg, err) {}
+			});
+	})
 </script>
 
 {% endblock %}
+
+
+
+{% comment %} <div class="quantity_inner">        
+	<button class="bt_minus">
+			<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+	</button>
+	<input type="text" value="1" size="2" class="quantity" data-max-count="20" />
+	<button class="bt_plus">
+			<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+	</button>
+</div> {% endcomment %}

@@ -1,5 +1,7 @@
-{{error}}
-
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}SneakerShop{% endblock %}
+{% block content %}
 {% if product %}
 {% for product in products %}
 <a href="/shop/{{product.slug}}"> </a> 
@@ -7,3 +9,4 @@
     {% else %}
     <h1>nothing found!</h1>
 {% endif %}
+{% endblock %}
