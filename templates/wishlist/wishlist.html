@@ -2,7 +2,11 @@
 {% load static %} 
 {% block title %}WishList{%endblock %} 
 {% block content %}
-
+<style>
+	#delete-button{
+		padding-top: 30px;
+	}
+</style>
 
 <main class="pt-5">
   <div class="container" style="max-width: 1000px">
@@ -28,10 +32,11 @@
             <div class="col-md-10 ps-md-3">
               <div class="card-body p-1">
                 <a class="text-decoration-none text-reset" href="{{item.product.get_absolute_url}}">
-                  <p class="card-text pb-3">{{product.title}}</p>
-                </a>                   
-                <a type="button" id="delete-button" data-index="{{product.id}}" class="delete-button text-decoration-none small">Delete</a>
+                  <h4 class="card-text pb-3">{{product.name}}</h4>
+                </a>                
+                <h5><a type="button" id="delete-button" data-index="{{product.id}}" class="delete-button text-decoration-none">Delete</a></h5>
               </div>
+							
             </div>
           </div>
         </div>

@@ -31,6 +31,35 @@ class Wishlist():
         for product in products:
             wishlist[str(product.id)]['product'] = product
 
+        for item in wishlist.values():
+            item['price'] = Decimal(item['price'])
+            item['total_price'] = item['price'] * item['qty']
+            yield item
+
+    def __len__(self):
+        return sum(item['qty'] for item in self.wishlist.values())
+
+    def update(self, product, qty):
+        product_id = str(product)
+        if product_id in self.wishlist:
+            self.wishlist[product_id]['qty'] = qty
+        self.save()
+
+    def get_subtotal_price(self):
+        return sum(Decimal(item['price']) * item['qty'] for item in self.wishlist.values())
+
+    def get_total_price(self):
+
+        subtotal = sum(Decimal(item['price']) * item['qty'] for item in self.wishlist.values())
+
+        if subtotal == 0:
+            shipping = Decimal(0.00)
+        else:
+            shipping = Decimal(11.50)
+
+        total = subtotal + Decimal(shipping)
+        return total
+
     def delete(self, product):
         product_id = str(product)
 
