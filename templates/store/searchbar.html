@@ -1,0 +1,9 @@
+{{error}}
+
+{% if product %}
+{% for product in products %}
+<a href="/shop/{{product.slug}}"> </a> 
+{% endfor %}
+    {% else %}
+    <h1>nothing found!</h1>
+{% endif %}

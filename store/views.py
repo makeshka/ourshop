@@ -17,3 +17,9 @@ def category_list(request, category_slug=None):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
     return render(request, 'store/products/single.html', {'product': product})
+
+def searchbar(request):
+    if request.method=='GET':
+        search = request.GET.get('search')
+        products = Product.products.all().filter(name=search)
+        return render(request, 'store/searchbar.html', {'products': products})

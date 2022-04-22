@@ -46,6 +46,13 @@
                              </ul>
                          </li>
                      </ul>
+                     <div class="topnav">
+                        <form action="{% url 'store:searchbar' %}" method="get"
+                        <input type="text" name="search" placeholder="search">
+                        <button type"submit" class="btn btn-dark btn-md">search</button>
+                        </form>
+                     </div>
+
                      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                          data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                          aria-label="Toggle navigation">
@@ -101,11 +108,11 @@
                          </ul>
                      </div>
                  </div>
-                 <form class="d-flex w-100 d-md-none">
+                 {% comment %} <form class="d-flex w-100 d-md-none">
                      <input class="form-control me-2" type="search" placeholder="Search products or FAQ"
                          aria-label="Search">
                      <button class="btn btn-outline-secondary" type="submit">Search</button>
-                 </form>
+                 </form> {% endcomment %}
              </div>
          </nav>
      </header>
