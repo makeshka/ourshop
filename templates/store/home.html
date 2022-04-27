@@ -1,13 +1,39 @@
-
 {% extends "./base.html" %}
 {% load static %}
 {% block title %}SneakerShop{% endblock %}
 {% block content %}
+<style>
+	*{
+		margin 0;
+	}
+	#section{
+		width: 500px;
+		position: absolute;
+	  margin: 210px 0 0 650px;
+		z-index: 1;
+	}
+</style>
 <main>
-  <div class="container">
-   
-    <div class="container">
-      <div class="row">
+	<section class="py-8 text-center container">
+    <div class="row py-lg-6" id="section">
+      <div class="col-lg-9 col-md-8 mx-auto">
+        <h1 class="fw-light" style="font-size: 60px;">SneakerShop</h1>
+        <p class="lead" style="font-size: 30px;">The best sneakers are only with us!</p>
+        <p>
+          <a href="#container" class="btn btn-primary my-2" style="font-size: 20px;">Buy sneaker</a>
+        </p>
+      </div>
+    </div>
+  </section>
+	<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="position:relative; bottom: 50px;">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="https://cdn.pixabay.com/photo/2019/01/26/22/48/nike-3957127_960_720.jpg" class="d-block w-100" alt="">
+			</div>
+		</div>
+	</div>
+    <div class="container" id="container">
+      <div class="row justify-content-around">
         <div class="album py-5">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
             {% for product in products %}
@@ -15,7 +41,7 @@
               <div class="card border-0">
                 <a class="text-dark text-decoration-none"
                       href="{{ product.get_absolute_url }}"><img class="img-fluid" alt="Responsive image" src="{{ product.image.url }}"></a>
-                <div class="card-body px-0">
+                <div class="card-body px-3">
                   <p class="card-text">
                     <a class="text-dark text-decoration-none"
                       href="{{ product.get_absolute_url }}">{{ product.name|slice:":17" }}</a>
@@ -28,6 +54,5 @@
           </div>
         </div>
       </div>
-    </div>
 </main>
 {% endblock %}
