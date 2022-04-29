@@ -9,7 +9,8 @@ urlpatterns = [
     path('basket/', include('basket.urls', namespace='basket')),
     path('payment/', include('payment.urls', namespace='payment')),
     path('account/', include('account.urls', namespace='account')),
-  	path('wishlist/', include('wishlist.urls', namespace='wishlist')),
+    path('orders/', include('orders.urls', namespace='orders')),
+		path('wishlist/', include('wishlist.urls', namespace='wishlist')),
 ]
 
 if settings.DEBUG:
