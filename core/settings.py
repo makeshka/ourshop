@@ -98,6 +98,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 BASKET_SESSION_ID = 'basket'
+WISHLIST_SESSION_ID = 'wishlist'
 
 AUTH_USER_MODEL = 'account.UserBase'
 LOGIN_REDIRECT_URL = '/account/dashboard'
