@@ -89,7 +89,7 @@
 </main>
 
 
-      <div class="row g-3">
+      {% comment %} <div class="row g-3">
         <div class="col-12 bg-light p-3 d-flex justify-content-between">
           <div class="d-flex d-flex-inline">
             <div class="pe-3">Order</div>
@@ -124,7 +124,7 @@
     </div>
   </div> 
   </div>
-</main>
+</main> {% endcomment %}
 
 
 <script>
@@ -148,7 +148,7 @@
             subtotal = 0
           }
           else{
-            total = (parseFloat(json.subtotal) + 150.99).toFixed(2);
+            total = (parseFloat(json.subtotal) + 11.50).toFixed(2);
             subtotal = json.subtotal
           }
 
