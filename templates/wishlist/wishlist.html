@@ -2,7 +2,11 @@
 {% load static %} 
 {% block title %}WishList{%endblock %} 
 {% block content %}
-
+<style>
+	#delete-button{
+		padding-top: 30px;
+	}
+</style>
 
 <main class="pt-5">
   <div class="container" style="max-width: 1000px">
@@ -16,22 +20,23 @@
     <div class="row g-3">
       <div class="col-md-7 col-lg-8 p-0">
 
-        {% for item in basket %} 
+        {% for item in wishlist %} 
         {% with product=item.product %}
 
         <div class="card mb-3 border-0 product-item" data-index="{{product.id}}">
           <div class="row g-0">
             <div class="col-md-2 d-none d-md-block">
-              <img class="img-fluid mx-auto d-block" alt="Responsive image"
-                  src="{{ product.image.url }}" />
+              <a href="{{ product.get_absolute_url }}"><img class="img-fluid mx-auto d-block" alt="Responsive image"
+                  src="{{ product.image.url }}" /></a>
             </div>
             <div class="col-md-10 ps-md-3">
               <div class="card-body p-1">
                 <a class="text-decoration-none text-reset" href="{{item.product.get_absolute_url}}">
-                  <p class="card-text pb-3">{{product.title}}</p>
-                </a>                   
-                <a type="button" id="delete-button" data-index="{{product.id}}" class="delete-button text-decoration-none small">Delete</a>
+                  <h4 class="card-text pb-3">{{product.name}}</h4>
+                </a>                
+                <h5><a type="button" id="delete-button" data-index="{{product.id}}" class="delete-button text-decoration-none">Delete</a></h5>
               </div>
+							
             </div>
           </div>
         </div>
@@ -137,7 +142,7 @@
     var prodid = $(this).data("index");
     $.ajax({
       type: "POST",
-      url: '{% url "basket:basket_delete" %}',
+      url: '{% url "wishlist:wishlist_delete" %}',
       data: {
         productid: $(this).data("index"),
         csrfmiddlewaretoken: "{{csrf_token}}",

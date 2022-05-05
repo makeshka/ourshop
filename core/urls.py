@@ -4,12 +4,13 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', include('store.urls', namespace='store')),
     path('basket/', include('basket.urls', namespace='basket')),
     path('payment/', include('payment.urls', namespace='payment')),
     path('account/', include('account.urls', namespace='account')),
-  	path('wishlist/', include('wishlist.urls', namespace='wishlist')),
+    path('orders/', include('orders.urls', namespace='orders')),
+		path('wishlist/', include('wishlist.urls', namespace='wishlist')),
 ]
 
 if settings.DEBUG:

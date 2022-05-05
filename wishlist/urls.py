@@ -5,7 +5,7 @@ from . import views
 app_name = 'wishlist'
 
 urlpatterns = [
-    path('', views.basket_summary, name='basket_summary'),
-    path('add/', views.basket_add, name='basket_add'),
-    path('delete/', views.basket_delete, name='basket_delete'),
+    path('', views.wishlist_page, name='wishlist_page'),
+    path('add/', views.wishlist_add, name='wishlist_add'),
+    path('delete/', views.wishlist_delete, name='wishlist_delete'),
 ]

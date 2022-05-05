@@ -1,5 +1,5 @@
-from .wishlist import Basket
+from .wishlist import Wishlist
 
 
-def basket(request):
-    return {'basket': Basket(request)}
+def wishlist(request):
+    return {'wishlist': Wishlist(request)}
