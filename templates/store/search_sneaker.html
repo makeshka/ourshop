@@ -1,0 +1,25 @@
+search_sneaker.html
+
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}SneakerShop{% endblock %}
+{% block content %}
+
+    <center>
+    {%if searched%}
+    <h1>You searched for {{ searched }}</h1>
+    <br/>
+    {%for sneaker in sneakers%}
+        <a href="{{ sneaker.get_absolute_url }}"> {{  sneaker   }} - {{   sneaker.price   }} </a> <br/> 
+    {%endfor%}
+
+    {%else%}
+        <h1> bad attempt, shit try again   </h1>
+
+    {%endif%}
+
+    <center>
+
+
+
+{% endblock %}

@@ -8,5 +8,5 @@ urlpatterns = [
     path('', views.product_all, name='product_all'),
     path('<slug:slug>', views.product_detail, name='product_detail'),
     path('shop/<slug:category_slug>/', views.category_list, name='category_list'),
-    path('searchbar/', views.searchbar, name='searchbar'),   
+    path('search_sneaker/', views.search_sneaker, name='search_sneaker'),
 ]

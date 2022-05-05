@@ -18,8 +18,13 @@ def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
     return render(request, 'store/products/single.html', {'product': product})
 
-def searchbar(request):
-    if request.method=='GET':
-        search = request.GET.get('search')
-        products = Product.products.all().filter(name=search)
-        return render(request, 'store/searchbar.html', {'products': products})
+def search_sneaker(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        sneakers = Product.objects.filter(name__contains=searched)
+        return render(request, 'store/search_sneaker.html', 
+        {'searched': searched,'sneakers':sneakers, } )
+
+    else:
+        return render(request, 'store/search_sneaker.html', {} )
+
