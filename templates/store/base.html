@@ -14,7 +14,6 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'core/basket/css/basket.css' %}">
     <link rel="icon" href="/media/images/favicon1.ico" type="image/x-icon">
@@ -22,7 +21,7 @@
 
 <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <header style="font-family: 'Poppins', sans-serif;">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark border-bottom">
+        <nav class="navbar navbar-expand-md navbar-light border-bottom" style="background-color: rgba(40, 41, 36, 1);">
             <div class="container-fluid px-md-4">
                 <div class="d-flex w-100 navbar-collapse">
                     <a class="navbar-brand d-flex-inline" href="/">
@@ -55,7 +54,7 @@
                         <form class="d-flex" action="{% url 'store:search_sneaker' %}" method="POST">
 
                             {% csrf_token %}
-                            <input type="text" name="searched" placeholder="search sneaker" aria-label="Search" >
+                            <input type="text" name="searched" placeholder="Search" aria-label="Search" >
                         </form>
                     </div>
 
@@ -117,11 +116,6 @@
                         </ul>
                     </div>
                 </div>
-                {% comment %} <form class="d-flex w-100 d-md-none">
-                    <input class="form-control me-2" type="search" placeholder="Search products or FAQ"
-                        aria-label="Search">
-                    <button class="btn btn-outline-secondary" type="submit">Search</button>
-                </form> {% endcomment %}
             </div>
         </nav>
     </header>
@@ -133,10 +127,10 @@
     <br>
     <br>
     <br>
-    <footer class="bg-dark text-center text-white" style="margin-top:auto;">
+    <footer class="text-center text-white" style="margin-top:auto; background-color: rgba(40, 41, 36, 1);">
         <div class="container p-4 pb-0">
             <section class="mb-4">
-                <button type="button" class="btn btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                <button type="button" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                         <path
                             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -168,7 +162,7 @@
                     </svg></button>
             </section>
         </div>
-        <div class="bg-dark text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="text-center p-3" style="background-color: rgba(40, 41, 36, 1);">
             © 2022 Copyright:
             <a class="text-white" href="/">SneakerShop</a>
         </div>

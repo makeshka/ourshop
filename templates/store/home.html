@@ -16,7 +16,7 @@
 <main>
 	<section class="py-8 text-center container">
     <div class="row py-lg-6" id="section">
-      <div class="col-lg-9 col-md-8 mx-auto">
+      <div class="col-lg-8 col-md-8 mx-auto">
         <h1 class="fw-light" style="font-size: 60px;">SneakerShop</h1>
         <p class="lead" style="font-size: 30px;">The best sneakers are only with us!</p>
         <p>
@@ -28,19 +28,19 @@
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="position:relative; bottom: 50px;">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="https://cdn.pixabay.com/photo/2019/01/26/22/48/nike-3957127_960_720.jpg" class="d-block w-100" alt="">
+				<img src="../media/images/Sneaker.png" class="d-block w-100 " alt="" style="height: 750px;">
 			</div>
 		</div>
 	</div>
     <div class="container" id="container">
-      <div class="row justify-content-around">
+      <div class="row justify-content-around" style="border-radius: 100px;">
         <div class="album py-5">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
             {% for product in products %}
             <div class="col">
               <div class="card border-0">
                 <a class="text-dark text-decoration-none"
-                      href="{{ product.get_absolute_url }}"><img class="img-fluid" alt="Responsive image" src="{{ product.image.url }}"></a>
+                      href="{{ product.get_absolute_url }}"><img class="img-fluid rounded" alt="Responsive image" src="{{ product.image.url }}"></a>
                 <div class="card-body px-3">
                   <p class="card-text">
                     <a class="text-dark text-decoration-none"

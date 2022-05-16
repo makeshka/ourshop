@@ -1,4 +1,6 @@
-/* Bootstrap Over-ride */
+body{
+	background-color: #E3E2DF;
+}
 @media (min-width: 1000px){
     .container{
         max-width: 1000px;
@@ -22,13 +24,8 @@
 .alert-primary{
     background-color: #E4F1FF;
 }
-
-
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 html, body, p, div{
     letter-spacing: -0.02px;
-    font-family: 'Roboto', sans-serif;
 }
 .fs12{
     font-size: 12px;
@@ -43,40 +40,28 @@ html, body, p, div{
 .fw500{
     font-weight: 500;
 }
-
-
-/* Navigation-Main*/
-
-/* xs */
 .logo {
     width: 49px;
     height: auto;
 }
-/* sm */
 @media (min-width: 768px) {
     .logo {
         width: 49px;
     }
 }
-/* md */
 @media (min-width: 992px) {
     .logo {
         width: 60px;
     }
 }
-/* lg */
 @media (min-width: 1200px) {
     .logo {
         width: 70px;
     }
 }
-
-/* Footer */
-
 .footer > div > div > ul > li{
     padding-bottom:8px;
 }
-
 .topnav input[type=text] {
     float: right;
     padding: 6px;
